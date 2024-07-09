@@ -14,9 +14,10 @@
   ```bash
   chmod 400 keypair-name.pem
 ssh -i keypair-name.pem ec2-user@[ip-address]
-```
+  ```
 - ssh -i keypair-name.pem ec2-user@[ip-address]
 
+```
 ## Step 3: Update and Install Docker & Git
 - sudo yum update -y
 - sudo yum install -y docker git
@@ -38,14 +39,14 @@ ssh -i keypair-name.pem ec2-user@[ip-address]
 
 ## Step 7: Run Docker Container
 - For Nginx: ```docker run -d -p 80:80 --name [app-name] -v $(pwd)/[app-name]:/usr/share/nginx/html:ro nginx
-```
+  ```
 - For Httpd(Optional): ```docker run -d -p 80:80 --name httpd-[app-name] -v $(pwd)/[app-name]:/usr/local/apache2/htdocs:ro httpd
-```
+  ```
 
 ## Note: Delete Existing Containers if on the same port
 - Stop all containers: ```sudo docker stop $(sudo docker ps -aq)
-```
+  ```
 - Remove all containers ``` sudo docker rm $(sudo docker ps -aq)
-```
+  ```
 ## Step 8: Access the Application
 - Check the public IP address from the EC2 instance to see the app hosted.
